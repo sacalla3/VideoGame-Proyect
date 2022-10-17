@@ -4,28 +4,58 @@ import java.util.ArrayList;
 import model.*;
 import java.lang.Math;
 
+/**
+ *
+ * @author Santiago Castillo
+ */
 public class VideoGameController{
 
+    /**
+     *
+     */
     public ArrayList<Player> array_players = new ArrayList<Player>();
     
+    /**
+     *
+     */
     public ArrayList<Level> array_levels = new ArrayList<Level>();
     
+    /**
+     *
+     */
     public ArrayList<Enemy> array_enemies = new ArrayList<Enemy>(); 
 
     //Sort the enemies by types
+
+    /**
+     *
+     */
     public int [] counter_enemy_types = {0, 0, 0, 0, 0}; 
     
-    
+    /**
+     *
+     */
     public ArrayList<Treasure> array_treasures = new ArrayList<Treasure>(); 
 
     //Sort the treasures by type according to their name
+
+    /**
+     *
+     */
     public ArrayList<String> treasure_types = new ArrayList<String>();
 
     //Counts the number of treasures by type
+
+    /**
+     *
+     */
     public ArrayList<Integer> treasure_types_counter = new ArrayList<Integer>(); 
     
-    
-    
+    /**
+     *
+     * @param nickname
+     * @param name
+     */
     public void createPlayer(String nickname, String name){
 
         //Check if the nickname is in use
@@ -65,6 +95,14 @@ public class VideoGameController{
 
     }
 
+    /**
+     *
+     * @param level
+     * @param name
+     * @param type
+     * @param subtract_score
+     * @param score_sum
+     */
     public void registerEnemy(int level, String name, int type, int subtract_score, int score_sum){
 
         String[] array_enemy_types = {"Ogres", "Abstracts", "Bosses", "Magic"};
@@ -141,7 +179,14 @@ public class VideoGameController{
 
     }
 
-
+    /**
+     *
+     * @param level
+     * @param quantity
+     * @param name
+     * @param url_image
+     * @param score
+     */
     public void registerTreasure(int level, int quantity, String name, String url_image, int score){
 
         if(this.array_treasures.size() <= 50){
@@ -190,19 +235,35 @@ public class VideoGameController{
 
     }
 
-
+    /**
+     *
+     * @return
+     */
     public ArrayList<Player> viewPlayers(){
         return this.array_players;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Level> viewLevels(){
         return this.array_levels;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Enemy> viewEnemies(){
         return this.array_enemies;
     }
 
+    /**
+     *
+     * @param option
+     * @param score
+     */
     public void modifyPlayerScore(int option, int score){
         this.array_players.get(option).modifyScore(score);
         System.out.println(" ");
@@ -210,8 +271,11 @@ public class VideoGameController{
         
     }
 
-    
-
+    /**
+     *
+     * @param option
+     * @param level
+     */
     public void modifyPlayerLevel(int option, int level){
 
         if(this.array_players.get(option).score < this.array_levels.get(level).points_required && level != 0){
@@ -227,6 +291,9 @@ public class VideoGameController{
         
     }
 
+    /**
+     *
+     */
     public void generateLevels(){
 
         for(int i = 1; i <= 10; i++){ 
@@ -237,6 +304,11 @@ public class VideoGameController{
     
     
     //Create a list sorting the treasures by type.
+
+    /**
+     *
+     * @return
+     */
     
     public ArrayList<String> calculateTreasureTypes(){
         
@@ -283,15 +355,29 @@ public class VideoGameController{
         return treasure_types;
     }
     
+    /**
+     *
+     * @param option
+     * @return
+     */
     public int quantitiesTypesTreasure(int option){
             
         return treasure_types_counter.get(option);
     }
     
+    /**
+     *
+     * @param option
+     * @return
+     */
     public int quantitiesTypesEnemies(int option){
         return counter_enemy_types[option];
     }
 
+    /**
+     *
+     * @return
+     */
     public int calculateMostRepeatedTreasureItem(){
 
         int counter = 0;
@@ -328,6 +414,10 @@ public class VideoGameController{
         return item_most_repeated_item;
     }
 
+    /**
+     *
+     * @return
+     */
     public int calculateEnemyHighestScore(){
 
         int counter = 0;
@@ -365,6 +455,11 @@ public class VideoGameController{
         return item_most_repeated_item;
     }
 
+    /**
+     *
+     * @param quantity
+     * @return
+     */
     public Player [] verTop5Players(int quantity){
 
         //Sort all players by their scores

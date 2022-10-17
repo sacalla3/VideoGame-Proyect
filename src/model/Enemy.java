@@ -1,18 +1,64 @@
 package model;
 
+/**
+ *
+ * @author sacal
+ */
 public class Enemy{
 
+    /**
+     *
+     */
     public String name; 
+
+    /**
+     *
+     */
     public String type;
+
+    /**
+     *
+     */
     public int subtract_score;
+
+    /**
+     *
+     */
     public int sum_score;
+
+    /**
+     *
+     */
     public double position_x;
+
+    /**
+     *
+     */
     public double position_y;
+
+    /**
+     *
+     */
     public int level;
+
+    /**
+     *
+     */
     public int consonants;
 
+    /**
+     *
+     */
     public String[] array_name;
 
+    /**
+     *
+     * @param name
+     * @param type
+     * @param subtract_score
+     * @param sum_score
+     * @param level
+     */
     public Enemy(String name, String type, int subtract_score, int sum_score, int level){
 
         this.name = name;
@@ -23,11 +69,20 @@ public class Enemy{
         this.array_name = this.name.split("");
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     */
     public void modifyPosition(double x, double y){
         this.position_x = x;
         this.position_y = y;
     }
 
+    /**
+     *
+     * @return
+     */
     public int calculateConsonantNumber(){
 
         String [] vowels = {"a", "e", "i", "o", "u"};
@@ -65,6 +120,10 @@ public class Enemy{
         return this.consonants;
     }
 
+    /**
+     *
+     * @return
+     */
     public String toString(){
         return "Name: " + this.name + ", Type: " + this.type + ", Subtracting score: " + this.subtract_score + ", Adding_score: " + this.sum_score + ", Position: " + this.position_x + " x " + this.position_y + ", Level: " + this.level;
     }

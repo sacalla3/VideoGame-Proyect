@@ -4,12 +4,31 @@ import java.util.Scanner;
 import model.VideoGameController;
 import model.CleanConsole;
 
+/**
+ *
+ * @author sacal
+ */
 public class VideoGameManager{
 
+    /**
+     *
+     */
     public static Scanner sc = new Scanner(System.in);
+
+    /**
+     *
+     */
     public static CleanConsole cleanConsole = new CleanConsole();
+
+    /**
+     *
+     */
     public static VideoGameController videoGameController = new VideoGameController();
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String args[]){
         
        
